@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\Output\Debug\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Xbim.Geometry.Engine.Interop\XbimArchitectureConventions.cs" Link="XbimArchitectureConventions.cs" />
+    <Compile Include="..\Xbim.Geometry.Engine.Interop\XbimCustomAssemblyResolver.cs" Link="XbimCustomAssemblyResolver.cs" />
+    <Compile Include="..\Xbim.Geometry.Engine.Interop\XbimGeometryEngine.cs" Link="XbimGeometryEngine.cs" />
+    <Compile Include="..\Xbim.Geometry.Engine.Interop\XbimPrerequisitesValidator.cs" Link="XbimPrerequisitesValidator.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="ManagedEsent" Version="1.9.4" />
+    <PackageReference Include="SharpZipLib" Version="1.0.0-alpha2" />
+    <PackageReference Include="Xbim.Essentials.Standard" Version="4.0.29-V009" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="x64\" />
+    <Folder Include="x86\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Output\Debug\x64\Xbim.Geometry.Engine201764.dll" Link="x64\Xbim.Geometry.Engine201764.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Output\Debug\x86\Xbim.Geometry.Engine201732.dll" Link="x86\Xbim.Geometry.Engine201732.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

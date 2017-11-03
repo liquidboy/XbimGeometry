@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Remoting;
+// using System.Runtime.Remoting;
 using Xbim.Common.Geometry;
 using Xbim.Common.Logging;
 using Xbim.Ifc4;
@@ -33,8 +33,10 @@ namespace Xbim.Geometry.Engine.Interop
             try
             {               
                 var ass =  Assembly.Load(assemblyName);
-                var oh = Activator.CreateInstance(ass.FullName, "Xbim.Geometry.XbimGeometryCreator");           
-                _engine = oh.Unwrap() as IXbimGeometryEngine; 
+                //var oh = Activator.CreateInstance(ass.FullName, "Xbim.Geometry.XbimGeometryCreator");           
+                var oh = Activator.CreateInstance(Type.GetType("Xbim.Geometry.XbimGeometryCreator"));
+                //_engine = oh.Unwrap() as IXbimGeometryEngine; 
+                _engine = oh as IXbimGeometryEngine;
             }
             catch (Exception e)
             {
